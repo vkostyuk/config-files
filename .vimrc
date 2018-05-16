@@ -36,6 +36,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'Chiel92/vim-autoformat'
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
+" Commenting out lines
+Plugin 'tomtom/tcomment_vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,3 +84,17 @@ endif
 
 " Number lines
 set nu
+
+
+" Flake8 (pep8 checker) config
+" Remove warnings window with a single keystroke
+map <leader>c <C-w>j<C-w>q
+" Don't open quickfix window
+let g:flake8_show_quickfix=0
+
+set lazyredraw 		" Buffer redraws (e.g., during macros)
+
+" Backup and swap files.
+set nobackup            " Disable backup files.
+set noswapfile          " Disable swap files.
+set nowritebackup       " Disable auto backup before overwriting a file.
