@@ -1,5 +1,5 @@
-set nocompatible              " required
-filetype off                  " required
+set nocompatible
+filetype off
 set background=dark
 
 " set the runtime path to include Vundle and initialize
@@ -36,8 +36,10 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'Chiel92/vim-autoformat'
 " Autocomplete
 Plugin 'Valloric/YouCompleteMe'
-" Commenting out lines
+" Commenting out lines (gc)
 Plugin 'tomtom/tcomment_vim'
+" Dockerfile syntax
+Plugin 'ekalinin/Dockerfile.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -65,6 +67,13 @@ au BufNewFile,BufRead *.js,*.html,*.css
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+
+" Dockerfile indentation
+au BufNewFile,BufRead Dockerfile*
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set autoindent |
 
 " Mark bad whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
@@ -98,3 +107,9 @@ set lazyredraw 		" Buffer redraws (e.g., during macros)
 set nobackup            " Disable backup files.
 set noswapfile          " Disable swap files.
 set nowritebackup       " Disable auto backup before overwriting a file.
+
+" Shortcut to open nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+" Disable interactive Ex mode
+nnoremap Q <Nop>
