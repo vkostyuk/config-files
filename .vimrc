@@ -24,7 +24,6 @@ Plugin 'scrooloose/syntastic'
 " PEP8 checking
 Plugin 'nvie/vim-flake8'
 " Color schemes
-Plugin 'jnurmine/Zenburn'
 Plugin 'altercation/vim-colors-solarized'
 " File browsing
 Plugin 'scrooloose/nerdtree'
@@ -83,13 +82,6 @@ set encoding=utf-8
 
 let python_highlight_all=1
 syntax on
-
-if has('gui_running')
-	set background=dark
-	colorscheme solarized
-else
-	colorscheme zenburn
-endif
 
 " Number lines
 set nu
