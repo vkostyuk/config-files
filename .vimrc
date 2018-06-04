@@ -91,3 +91,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Disable interactive Ex mode
 nnoremap Q <Nop>
+
+" Flake8 options
+" Don't show marks in file
+let g:flake8_show_in_file=0
