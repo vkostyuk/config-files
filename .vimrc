@@ -95,3 +95,7 @@ nnoremap Q <Nop>
 " Flake8 options
 " Don't show marks in file
 let g:flake8_show_in_file=0
+
+" YouCompleteMe options
+" Auto close preview on option select
+let g:ycm_autoclose_preview_window_after_completion=1
