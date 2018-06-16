@@ -56,14 +56,15 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
 
-" js/html/css indentation
-au BufNewFile,BufRead *.js,*.html,*.css
+" js/html/css/yaml indentation
+au BufNewFile,BufRead *.js,*.html,*.css,*.yaml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+	\ set expandtab |
 
 " Dockerfile indentation
-au BufNewFile,BufRead Dockerfile*
+au BufNewFile,BufRead Dockerfile*,.vimrc
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
@@ -108,3 +109,21 @@ let R_source = '/home/vkostyuk/.vim/bundle/Nvim-R/R/tmux_split.vim'
 let R_notmuxconf = 1
 " Display csv (csv.vim plugin) within Tmux
 let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
+
+" Flake8 options
+" Don't show marks in file
+let g:flake8_show_in_file=0
+
+" YouCompleteMe options
+" Auto close preview on option select
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" Strip trailing whitespace
+fun! <SID>StripTrailingWhitespaces()
+	let l = line(".")
+	let c = col(".")
+	%s/\s\+$//e
+	call cursor(l, c)
+endfun
+
+au BufWritePre *.py,*.c,*.h,*.R,*.cpp :call <SID>StripTrailingWhitespaces()
