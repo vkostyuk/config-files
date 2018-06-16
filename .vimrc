@@ -31,6 +31,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tomtom/tcomment_vim'
 " Dockerfile syntax
 Plugin 'ekalinin/Dockerfile.vim'
+" R syntax and more
+Plugin 'jalvesaq/Nvim-R'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,3 +93,18 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Disable interactive Ex mode
 nnoremap Q <Nop>
+
+" Set leader to ,
+let mapleader = ","
+
+" Show when leader (or other command key) is pressed
+set showcmd
+
+" Configuration of Nvim-R plugin for Vim+Tmux
+" Run R in Tmux (not in Vim's terminal emulator)
+let R_in_buffer = 0
+let R_source = '/home/vkostyuk/.vim/bundle/Nvim-R/R/tmux_split.vim'
+" Use my .tmux.conf
+let R_notmuxconf = 1
+" Display csv (csv.vim plugin) within Tmux
+let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
