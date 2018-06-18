@@ -31,6 +31,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'tomtom/tcomment_vim'
 " Dockerfile syntax
 Plugin 'ekalinin/Dockerfile.vim'
+" YAML highlighting
+Plugin 'ingydotnet/yaml-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -93,6 +95,9 @@ map <C-n> :NERDTreeToggle<CR>
 " Disable interactive Ex mode
 nnoremap Q <Nop>
 
+" Syntastic options
+let g:syntastic_python_python_exec="/usr/bin/python3"
+
 " Flake8 options
 " Don't show marks in file
 let g:flake8_show_in_file=0
@@ -110,3 +115,9 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 au BufWritePre *.py,*.c,*.h,*.R,*.cpp :call <SID>StripTrailingWhitespaces()
+
+" Copy between different vim instances
+vnoremap <C-c> :w! ~/.vimbuffer<CR>
+nnoremap <C-c> :w! ~/.vimbuffer<CR>
+noremap <C-p> :r ~/.vimbuffer<CR>
+
