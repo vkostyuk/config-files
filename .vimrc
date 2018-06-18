@@ -33,6 +33,8 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ekalinin/Dockerfile.vim'
 " YAML highlighting
 Plugin 'ingydotnet/yaml-vim'
+" R syntax and more
+Plugin 'jalvesaq/Nvim-R'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -97,6 +99,21 @@ nnoremap Q <Nop>
 
 " Syntastic options
 let g:syntastic_python_python_exec="/usr/bin/python3"
+
+" Set leader to ,
+let mapleader = ","
+
+" Show when leader (or other command key) is pressed
+set showcmd
+
+" Configuration of Nvim-R plugin for Vim+Tmux
+" Run R in Tmux (not in Vim's terminal emulator)
+let R_in_buffer = 0
+let R_source = '/home/vkostyuk/.vim/bundle/Nvim-R/R/tmux_split.vim'
+" Use my .tmux.conf
+let R_notmuxconf = 1
+" Display csv (csv.vim plugin) within Tmux
+let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
 
 " Flake8 options
 " Don't show marks in file
