@@ -138,3 +138,18 @@ vnoremap <C-c> :w! ~/.vimbuffer<CR>
 nnoremap <C-c> :w! ~/.vimbuffer<CR>
 noremap <C-p> :r ~/.vimbuffer<CR>
 
+" Toggle ipdb breakpoints using <F6>
+func! s:SetBreakpoint()
+	if getline(line('.')-1)!~#'^\s*import\sipdb'   
+		cal append(line('.')-1, repeat(' ', strlen(matchstr(getline('.'), '^\s*'))) . 'import ipdb; ipdb.set_trace()')
+	endif
+endf
+
+func! s:RemoveBreakpoint()
+	exe 'silent! g/^\s*import\sipdb\;\?\n*\s*ipdb.set_trace()/d'
+endf
+
+func! s:ToggleBreakpoint()
+	if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
+endf
+nnoremap <F6> :call <SID>ToggleBreakpoint()<CR>
