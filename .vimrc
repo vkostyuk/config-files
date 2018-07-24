@@ -35,6 +35,8 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
 " R syntax and more
 Plugin 'jalvesaq/Nvim-R'
+" Awk syntax
+Plugin 'awk.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
