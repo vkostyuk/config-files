@@ -59,7 +59,7 @@ au BufNewFile,BufRead *.py
     \ set tabstop=4 |
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
-    \ set textwidth=79 |
+    \ set textwidth=90 |
     \ set expandtab |
     \ set autoindent |
     \ set fileformat=unix |
@@ -77,6 +77,35 @@ au BufNewFile,BufRead Dockerfile*,.vimrc
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set autoindent |
+
+" Stan indentation and type
+au BufNewFile,BufRead *.stan,*.Stan,*.STAN
+    \ set syntax=stan |
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set autoindent |
+    \ set expandtab
+
+" Markdown indentation
+au BufNewFile,BufRead *.md
+    \ set filetype=markdown |
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set expandtab |
+    \ set textwidth=90 |
+    \ set fileformat=unix
+
+" SQL indentation
+au BufNewFile,BufRead *.sql,*.SQL
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=90 |
+    \ set expandtab |
+    \ set autoindent
+
 
 " Mark bad whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
