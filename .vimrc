@@ -9,8 +9,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Folding
 Plugin 'SimpylFold'
-" Intendation
-Plugin 'Vimjas/vim-python-pep8-indent'
 " Syntax highlighting
 Plugin 'scrooloose/syntastic'
 " PEP8 checking
@@ -37,6 +35,12 @@ Plugin 'ingydotnet/yaml-vim'
 Plugin 'jalvesaq/Nvim-R'
 " Awk syntax
 Plugin 'awk.vim'
+" Stan syntax
+Plugin 'maverickg/stan.vim'
+" Markdown plugin
+Plugin 'gabrielelana/vim-markdown'
+" Indendation for Python
+Plugin 'Vimjas/vim-python-pep8-indent'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
