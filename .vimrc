@@ -132,9 +132,6 @@ map <C-n> :NERDTreeToggle<CR>
 " Disable interactive Ex mode
 nnoremap Q <Nop>
 
-" Syntastic options
-let g:syntastic_python_python_exec="/usr/bin/python3"
-
 " Set leader to ,
 let mapleader = ","
 
@@ -157,6 +154,7 @@ let g:flake8_show_in_file=0
 " YouCompleteMe options
 " Auto close preview on option select
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " Strip trailing whitespace
 fun! <SID>StripTrailingWhitespaces()
@@ -188,3 +186,23 @@ func! s:ToggleBreakpoint()
 	if getline('.')=~#'^\s*import\sipdb' | cal s:RemoveBreakpoint() | el | cal s:SetBreakpoint() | en
 endf
 nnoremap <F6> :call <SID>ToggleBreakpoint()<CR>
+
+" Disable markdown spellcheck
+let g:markdown_enable_spell_checking = 0
+let g:markdown_enable_input_abbreviations = 0
+
+" Set better colors in vimdiff
+highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffDelete cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffChange cterm=bold ctermfg=10 ctermbg=17 gui=none guifg=bg guibg=Red
+highlight DiffText   cterm=bold ctermfg=10 ctermbg=88 gui=none guifg=bg guibg=Red
+
+" SQL formatting
+noremap <F3> :Autoformat<CR>
+let g:formatdef_sql = '"sqlformat --reindent --keywords upper - identifiers lower -"'
+let g:formatters_sql = ['sql']
+
+" Set Syntastic to use Python 3.6
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_python_checkers = ["flake8"]
+let g:syntastic_aggregate_errors = 1
