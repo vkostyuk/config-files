@@ -1,51 +1,47 @@
 set nocompatible
 set background=dark
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Vim-plug
+call plug#begin('~/.vim/plugged')
+
 " Folding
-Plugin 'SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 " Syntax highlighting
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " PEP8 checking
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 " Color schemes
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 " File browsing
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 " Search in files
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " Powerline (status)
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Autoformatting 
-Plugin 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat'
 " Autocomplete
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Commenting out lines (gc)
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 " Dockerfile syntax
-Plugin 'ekalinin/Dockerfile.vim'
+Plug 'ekalinin/Dockerfile.vim'
 " YAML highlighting
-Plugin 'ingydotnet/yaml-vim'
+Plug 'ingydotnet/yaml-vim'
 " R syntax and more
-Plugin 'jalvesaq/Nvim-R'
+Plug 'jalvesaq/Nvim-R', {'tag': 'v0.9.11'}
 " Awk syntax
-Plugin 'awk.vim'
+Plug 'vim-scripts/awk.vim'
 " Stan syntax
-Plugin 'maverickg/stan.vim'
+Plug 'maverickg/stan.vim'
 " Markdown plugin
-Plugin 'gabrielelana/vim-markdown'
+Plug 'gabrielelana/vim-markdown'
 " Indendation for Python
-Plugin 'Vimjas/vim-python-pep8-indent'
+Plug 'Vimjas/vim-python-pep8-indent'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()
 
-filetype plugin indent on
 
 " Enable folding
 set foldmethod=indent
@@ -141,11 +137,16 @@ set showcmd
 " Configuration of Nvim-R plugin for Vim+Tmux
 " Run R in Tmux (not in Vim's terminal emulator)
 let R_in_buffer = 0
-let R_source = '/home/vkostyuk/.vim/bundle/Nvim-R/R/tmux_split.vim'
+" Use tmux split instead of new terminal for R console
+let R_tmux_split = 1
 " Use my .tmux.conf
 let R_notmuxconf = 1
 " Display csv (csv.vim plugin) within Tmux
 let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
+" Use \ to send to R
+nmap \ <Plug>RDSendLine
+vmap \ <Plug>RDSendSelection
+vmap \e <Plug>RESendSelection
 
 " Flake8 options
 " Don't show marks in file
