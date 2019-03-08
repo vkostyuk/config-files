@@ -42,6 +42,8 @@ Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 
+filetype plugin indent on
+syntax on
 
 " Enable folding
 set foldmethod=indent
