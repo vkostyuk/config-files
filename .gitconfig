@@ -3,3 +3,5 @@
 	name = Victor Kostyuk
 [core]
 	editor = vim
+[push]
+	default = simple
