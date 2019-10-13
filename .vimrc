@@ -155,6 +155,8 @@ let R_csv_app = 'tmux new-window scim --txtdelim="\t"'
 nmap \ <Plug>RDSendLine
 vmap \ <Plug>RDSendSelection
 vmap \e <Plug>RESendSelection
+" Don't substitute <- when typing _
+let R_assign=2
 
 " Flake8 options
 " Don't show marks in file
@@ -215,3 +217,6 @@ let g:formatters_sql = ['sql']
 let g:syntastic_python_python_exec = '/usr/bin/python3'
 let g:syntastic_python_checkers = ["flake8"]
 let g:syntastic_aggregate_errors = 1
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
