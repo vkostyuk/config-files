@@ -69,7 +69,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
 
 " js/html/css/yaml indentation
-au BufNewFile,BufRead *.js,*.html,*.css,*.yaml
+au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
