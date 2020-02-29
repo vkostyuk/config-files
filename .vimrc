@@ -68,6 +68,16 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix |
 
+" R indentation
+au BufNewFile,BufRead *.R,*.Rmd
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+    \ set textwidth=90 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
 " js/html/css/yaml indentation
 au BufNewFile,BufRead *.js,*.html,*.css,*.yaml,*.yml
     \ set tabstop=2 |
