@@ -123,3 +123,6 @@ fi
 # Config
 alias config='/usr/bin/git --git-dir=$HOME/.myconf/ --work-tree=$HOME'
 source ~/git-completion.bash
+
+# ipdb breakpoints in Python 3.7+
+export PYTHONBREAKPOINT=ipdb.set_trace
