@@ -91,6 +91,7 @@ au BufNewFile,BufRead Dockerfile*,.vimrc
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set autoindent |
+    \ set expandtab
 
 " Stan indentation and type
 au BufNewFile,BufRead *.stan,*.Stan,*.STAN
