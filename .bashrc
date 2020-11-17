@@ -126,3 +126,11 @@ source ~/git-completion.bash
 
 # ipdb breakpoints in Python 3.7+
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+# Source fzf keybindings, if fzf is installed
+if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
+if [ -f /usr/share/doc/fzf/examples/comletion.bash ]; then
+  source /usr/share/doc/fzf/examples/completion.bash
+fi
