@@ -45,6 +45,8 @@ Plug 'maverickg/stan.vim'
 Plug 'gabrielelana/vim-markdown'
 " Indendation for Python
 Plug 'Vimjas/vim-python-pep8-indent'
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
 
