@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
 
 " Folding
 Plug 'tmhedberg/SimpylFold'
-" Syntax highlighting
-Plug 'scrooloose/syntastic'
+" Linting (replaced syntastic with ale)
+Plug 'dense-analysis/ale'
 " PEP8 checking
 Plug 'nvie/vim-flake8'
 " Color schemes
@@ -226,10 +226,9 @@ noremap <F3> :Autoformat<CR>
 let g:formatdef_sql = '"sqlformat --reindent --keywords upper - identifiers lower -"'
 let g:formatters_sql = ['sql']
 
-" Set Syntastic to use Python 3.6
-let g:syntastic_python_python_exec = '/usr/bin/python3'
-let g:syntastic_python_checkers = ["flake8"]
-let g:syntastic_aggregate_errors = 1
+" Configure ALE
+" Run only on file save
+let g:ale_lint_on_text_changed = 'never'
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
