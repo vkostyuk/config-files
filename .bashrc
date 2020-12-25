@@ -127,6 +127,11 @@ source ~/git-completion.bash
 # ipdb breakpoints in Python 3.7+
 export PYTHONBREAKPOINT=ipdb.set_trace
 
+# Use fd with fzf instead of find
+alias fd='fdfind'
+export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git --color=always'
+export FZF_DEFAULT_OPTS='--ansi'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Source fzf keybindings, if fzf is installed
 if [ -f /usr/share/doc/fzf/examples/key-bindings.bash ]; then
   source /usr/share/doc/fzf/examples/key-bindings.bash
